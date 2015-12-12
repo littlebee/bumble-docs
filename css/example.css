@@ -1,0 +1,251 @@
+
+html, body {
+  height: 99%;
+}
+
+body {
+  overflow: auto;
+}
+
+h3 button {
+  margin-left: 50px;
+  margin-top: -6px;
+}
+
+label {
+  font-size: 12px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.45);
+}
+    
+.code-pane {
+  width: 90%;
+  overflow: auto;
+  margin: 9px 18px;
+}
+
+.demo-pane {
+  vertical-align: top;
+  margin: 9px 18px;
+}
+
+#demo {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 4px 5px;
+}
+
+.syntaxhighlighter {
+  width: 1000px;
+}
+
+.wide-input input {
+  width: 340px;
+}
+
+.form-buttons {
+  margin-top: 20px;
+}
+.kitten-card .datum.lazy-image img{
+  min-height: 160px;
+  overflow: hidden;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+.more {
+  display: none;
+  position: absolute;
+  left: 40%;
+  margin-top: 10px;
+  z-index: 2;
+}
+
+.large-placeholder {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding-top: 25%;
+  font-size: 22px;
+  color: lightgrey;
+}
+
+button {
+  margin-right: 5px;
+
+}
+
+h3 {
+  margin: 0px;
+  line-height: 40px;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] {
+  overflow: hidden;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .demo-pane {
+  width: 98%;
+  height: calc(100% - 75px);
+  overflow: hidden;
+  transition: height 0.15s ease-out;
+  margin-left: 12px;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .code-pane {
+  height: 75px;
+  overflow: auto;
+  transition: height 0.15s ease-out
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .code-pane .more {
+  display: inline-block;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"][data-showmore="code"] .demo-pane .more {
+  display: inline-block;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"][data-showmore="code"] .code-pane .more {
+  display: none;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"][data-showmore="code"] .demo-pane {
+  height: 40%;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"][data-showmore="code"] .code-pane {
+  height: 57%;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] #demo {
+  height: calc(100% - 52px);
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .demo,
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .collection,
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .grid {
+  height: 100%;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .tilegrid-react {
+  height: calc(100% - 24px);
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .grid {
+  display: inline-block;
+  width: calc(90% - 308px);
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .preview {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 20px;
+  margin-left: 5px;
+  width: 380px;
+  height: calc(100% - 24px);
+  overflow: auto;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .preview .lazy-image {
+  min-height: 140px;
+  display: inline-block;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .preview img {
+  width: 100px;
+}
+
+body[data-examplefile="/tilegrid/tilegrid.jsx"] .preview .top-right {
+  display: inline-block;
+  width: calc(100% - 113px);
+  vertical-align: top;
+  margin-left: 7px;
+} 
+
+body.examples-index {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+body.examples-index .main-content {
+  margin-left: 0px;
+  overflow: hidden;
+}
+
+
+#examplesView {
+  height: 100%;
+}
+
+body[data-examplefile="examplesView.jsx"] .tile,
+#examplesView .tile {
+  text-align: left;
+  margin-bottom: 14px;
+  margin-left: -5px;
+}
+
+body[data-examplefile="examplesView.jsx"] .tile h4,
+#examplesView .tile h4{
+  text-align: center;
+}
+
+
+body[data-examplefile="examplesView.jsx"] .collection,
+body[data-examplefile="examplesView.jsx"] .model, 
+#examplesView .collection,
+#examplesView .model {
+  height: 100%;
+}
+
+body[data-examplefile="examplesView.jsx"] iframe ,
+#examplesView iframe {
+  height: 100%;
+  width: 100%;
+}
+
+body[data-examplefile="examplesView.jsx"] .tilegrid-react,
+#examplesView .tilegrid-react {
+  text-align: left;
+  width: 380px;
+  display: inline-block;
+  height: 100%;
+  padding-left: 5px;
+}
+
+body[data-examplefile="examplesView.jsx"] .tilegrid,
+#examplesView .tilegrid {
+  height: calc(100% - 25px);
+  padding: 13px;
+}
+
+body[data-examplefile="examplesView.jsx"] .tile img,
+#examplesView .tile img {
+  float: left;
+  height: 100px;
+  margin-right: 7px;
+}
+
+body[data-examplefile="examplesView.jsx"] .content-pane,
+#examplesView .content-pane {
+  display: inline-block;
+  width: calc(100% - 400px);
+  vertical-align: top;
+  height: calc(100% - 11px);
+  position: relative;
+  margin-top: 10px;
+  background-color: white;
+}
+
+body[data-examplefile="examplesView.jsx"] .content-pane {
+  height: 1000px;
+}
+

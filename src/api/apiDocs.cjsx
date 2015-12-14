@@ -40,10 +40,13 @@ TocSection = React.createClass
 Toc = React.createClass 
   render: ->
     <div className="toc no-print">
-      <TocSection label="Datum Components" listComponents={@props.datumClasses}/>
-      <TocSection label="Contextual Components" listComponents={@props.otherClasses}/>
+      {@renderTocSections()}
     </div>
-
+    
+  renderTocSections: ->
+    sections = for section, index in @props.sections
+      <TocSection key={"tocsection-" + index} label={section.label} listComponents={section.documentorData.classes}/>
+    return sections
 
 Markdown = React.createClass
   render: ->
@@ -118,9 +121,13 @@ DocSection = React.createClass
 DocContent = React.createClass 
   render: ->
     <div className='doc-content'>
-      <DocSection label="Datum Components" listComponents={@props.datumClasses}/> 
-      <DocSection label="Contextual Components" listComponents={@props.otherClasses}/>
+      {@renderSections()}
     </div>
+    
+  renderSections: () ->
+    sections = for section,index in @props.sections
+      <DocSection key={"docsection-" + index} label={section.label} listComponents={section.documentorData.classes}/> 
+    return sections
 
     
 module.exports = ApiDocs = React.createClass 
@@ -129,3 +136,9 @@ module.exports = ApiDocs = React.createClass
       <Toc {...@props}/>
       <DocContent {...@props}/>
     </div>
+    
+  proptypes: ->
+    return 
+      
+    
+    

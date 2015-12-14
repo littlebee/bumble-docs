@@ -2,6 +2,7 @@ _ = require('underscore')
 fs = require('fs')
 path = require('path')
 glob = require('glob')
+str = require('bumble-strings')
 
 module.exports = class Documentor 
   # comments get handled first, if we are in a comment, then 
@@ -19,15 +20,17 @@ module.exports = class Documentor
       verbose: false
 
 
-  processFiles: (srcDirs, moduleData, options={}) ->
-    options = _.defaults options,
-      recursive: true
-      
-    postfix = if options.recursive then "/**/*" else "/*"
+  processFiles: (srcDirs, moduleData) ->
     srcDirs = [srcDirs] unless _.isArray srcDirs
     for srcDir in srcDirs
-      if fs.lstatSync(srcDir).isDirectory()
-        files = glob.sync(srcDir + postfix, nodir: true)
+      isGlob = str.has(srcDir, "*")
+      unless isGlob 
+        if fs.existsSync(srcDir) && fs.lstatSync(srcDir).isDirectory()
+          srcDir = path.join(srcDir, "**/*")
+          isGlob = true
+      
+      if isGlob
+        files = glob.sync(srcDir, nodir: true)
         for file in files
           moduleData = @processFile(file, moduleData)
       else

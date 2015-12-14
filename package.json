@@ -23,9 +23,11 @@
   "homepage": "https://github.com/littlebee/bumble-docs",
   "dependencies": {
     "backbone": ">=0.9.2",
+    "bumble-strings": "^0.1.0",
     "coffee-react": "^4.0.0",
     "coffee-script": "^1.10.0",
     "commander": "^2.9.0",
+    "fs-extra": "^0.26.2",
     "glob": "^5.0.15",
     "inflection": "^1.7.2",
     "jsx-syntaxhighlighter": "^0.1.0",
@@ -37,5 +39,4 @@
     "react-select": "^1.0.0-beta5",
     "underscore": "^1.8.3"
   }
-
 }

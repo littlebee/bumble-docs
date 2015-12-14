@@ -2,41 +2,13 @@
 var Rd = ReactDatum
 
 // This is the source for the left-right iframe viewer used to
-// view examples on our github.io pages 
-// http://zulily.github.io/react-datum/docs/examples
+// view examples on our github.io pages like http://zulily.github.io/react-datum/docs/examples
+//
+// this file is created by bumble-docs if it doesn't exist in the docs/examples dir
 
-var examplesCollection = new Backbone.Collection([{
-  id: "model",
-  name: "Model Demo",
-  relativePath: "model/model.html",
-  description: "This demo shows how simple it is to create a display only form.", 
-  thumbnailUrl: "http://zulily.github.io/react-datum/docs/img/react-datum_model-example.png",
-},{
-  id: "form",
-  name: "Form Demo",
-  relativePath: "form/form.html",
-  description: "This demo shows how to create an input form that saves a Backbone model when "+
-    "the user presses save.",
-  thumbnailUrl: "http://zulily.github.io/react-datum/docs/img/react-datum_form-example.png",
-},{
-  id: "bigKittens",
-  name: "Big Kittens Demo!",
-  relativePath: "tilegrid/tilegrid.html",
-  description: "This demo shows the pieces all come together to make a function CRUD app. " +
-    "<br>...with Kittens!<br><br>Try maximizing your browser or zooming out.  The " +
-    "tiles can be variable height and width or fixed via css.",
-},{
-  id: "examplesView",
-  name: "Demos Within Demos",
-  relativePath: "examplesView.html",
-  description: "<p>This demo is this demo viewer!</p> " +
-    "<p>The demo viewer you are looking at right now, is really just a ReactDatum Tilegrid, a few "+
-    "datums and a custom iframe component.</p>"+
-    "<p>Be careful you don't fall in the rabbit hole by clicking too deep. :)</p>" + 
-    "<p>All joking and parlor tricks aside, if you scroll past the the static data, you "+
-    "can see a nice example of how to make use of a contextually provided model in a custom "+
-    "react component</p> ",
-}])
+// EXAMPLES_METADATA is loaded by the index.html from ./examplesMetadata.js which is generated
+// by bumble-docs/scripts/buildExamples.coffee
+var examplesCollection = new Backbone.Collection(EXAMPLES_METADATA)
 
 
 // Each of the demos are wrapped in their own .html which is generated using /src/docs/exampleFile.tpl  
@@ -51,7 +23,9 @@ var DemoIframe = React.createClass({
   },
   render: function() {
     model = this.getModel()
-    return <iframe src={model.get('relativePath')}/>
+    srcPath = model.get('path')
+    htmlPath = srcPath.replace(/(.*)(\.jsx|\.js|\.coffee|\.cjsx)/, "$1.html")
+    return <iframe src={htmlPath}/>
   },
   
   getModel: function() {

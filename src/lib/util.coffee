@@ -118,6 +118,10 @@ pressAnyKeyToContinue = (method) ->
   process.stdin.resume();
   process.stdin.on('data', method);
   
+  
+parseJsonFile = (file) ->
+  return JSON.parse(fs.readFileSync(file))
+  
 
 module.exports =
   systemCmd: systemCmd
@@ -126,3 +130,4 @@ module.exports =
   installNodePackage: installNodePackage
   openTerminalTab: openTerminalTab
   pressAnyKeyToContinue: pressAnyKeyToContinue
+  parseJsonFile: parseJsonFile

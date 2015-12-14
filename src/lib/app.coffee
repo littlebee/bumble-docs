@@ -37,7 +37,7 @@ module.exports = class App
       [dir] = fileSpec.split('/')
       for file in files
         target = "./docs/#{dir}/" + path.basename(file)
-        fs.copySync(file, target) unless fs.existsSync(target)
+        fs.copySync(file, target, clobber: true)
     
   @ourNpmPackage:  util.parseJsonFile('node_modules/bumble-docs/package.json')
   

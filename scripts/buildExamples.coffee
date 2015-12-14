@@ -86,16 +86,20 @@ examples.push
 
 for example in app.configFile.examples
   file = example.path
+  console.log "creating " + file
+    
   ext = path.extname(file)
   simpleName = path.basename(file, ext)
   relativePath = path.dirname(file)
+  htmlOutputFile = path.join(options.outputDir, relativePath, simpleName + '.html')
+  jsOutputFile = path.join(options.outputDir, relativePath, simpleName + '.js')
   fullPathAndFile = if example.id == "examplesView" 
     "node_modules/bumble-docs/src/examples/examplesView.jsx"
   else
     path.join(exampleRoot, file)
-  
+  depth = htmlOutputFile.split('/').length - 1
   relativeRoot = ".."
-  relativeRoot += "/.." for dir in relativePath.split('/')
+  relativeRoot += "/.." for i in [0..depth - 2]
 
   return unless ext in [".coffee", ".js", ".jsx", ".cjsx"]
   
@@ -105,7 +109,7 @@ for example in app.configFile.examples
   # console.log rawSource
   highlightedSource = nsh.highlight(rawSource, language) || rawSource
   
-  templateArgs =
+  exampleFragment = exampleTemplate(
     sourceCode: highlightedSource
     # the example source compile from src/examples into respective
     # directories in docs/examples.   The compiled .js should already be there
@@ -114,13 +118,14 @@ for example in app.configFile.examples
     relativeFile: file
     simpleName: simpleName
     relativeRoot: relativeRoot
-    
-
-  htmlOutputFile = path.join(options.outputDir, relativePath, simpleName + '.html')
-  jsOutputFile = path.join(options.outputDir, relativePath, simpleName + '.js')
-  console.log "processing file: " + file
-  
-  fs.writeFileSync htmlOutputFile, exampleTemplate(templateArgs)
+  )
+  exampleHtml = indexTemplate(
+    relativeRoot: relativeRoot
+    header: ""
+    content: exampleFragment
+    bodyClass: "example #{file.replace(/[\/\.]/g, '_')}"
+  )
+  fs.writeFileSync htmlOutputFile, exampleHtml
   
   compiledJs = switch
     when ext == '.js' then rawSource

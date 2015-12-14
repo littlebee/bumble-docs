@@ -86,11 +86,16 @@ h3 {
   line-height: 40px;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] {
+body.example .main-content {
+  height: 100%;
+  top: 0px;
+}
+
+body.tilegrid_tilegrid_jsx {
   overflow: hidden;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .demo-pane {
+body.tilegrid_tilegrid_jsx .demo-pane {
   width: 98%;
   height: calc(100% - 75px);
   overflow: hidden;
@@ -98,52 +103,52 @@ body[data-examplefile="/tilegrid/tilegrid.jsx"] .demo-pane {
   margin-left: 12px;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .code-pane {
+body.tilegrid_tilegrid_jsx .code-pane {
   height: 75px;
   overflow: auto;
   transition: height 0.15s ease-out
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .code-pane .more {
+body.tilegrid_tilegrid_jsx .code-pane .more {
   display: inline-block;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"][data-showmore="code"] .demo-pane .more {
+body.tilegrid_tilegrid_jsx[data-showmore="code"] .demo-pane .more {
   display: inline-block;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"][data-showmore="code"] .code-pane .more {
+body.tilegrid_tilegrid_jsx[data-showmore="code"] .code-pane .more {
   display: none;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"][data-showmore="code"] .demo-pane {
+body.tilegrid_tilegrid_jsx[data-showmore="code"] .demo-pane {
   height: 40%;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"][data-showmore="code"] .code-pane {
+body.tilegrid_tilegrid_jsx[data-showmore="code"] .code-pane {
   height: 57%;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] #demo {
+body.tilegrid_tilegrid_jsx #demo {
   height: calc(100% - 52px);
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .demo,
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .collection,
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .grid {
+body.tilegrid_tilegrid_jsx .demo,
+body.tilegrid_tilegrid_jsx .collection,
+body.tilegrid_tilegrid_jsx .grid {
   height: 100%;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .tilegrid-react {
+body.tilegrid_tilegrid_jsx .tilegrid-react {
   height: calc(100% - 24px);
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .grid {
+body.tilegrid_tilegrid_jsx .grid {
   display: inline-block;
   width: calc(90% - 308px);
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .preview {
+body.tilegrid_tilegrid_jsx .preview {
   display: inline-block;
   vertical-align: top;
   padding-top: 20px;
@@ -153,16 +158,16 @@ body[data-examplefile="/tilegrid/tilegrid.jsx"] .preview {
   overflow: auto;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .preview .lazy-image {
+body.tilegrid_tilegrid_jsx .preview .lazy-image {
   min-height: 140px;
   display: inline-block;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .preview img {
+body.tilegrid_tilegrid_jsx .preview img {
   width: 100px;
 }
 
-body[data-examplefile="/tilegrid/tilegrid.jsx"] .preview .top-right {
+body.tilegrid_tilegrid_jsx .preview .top-right {
   display: inline-block;
   width: calc(100% - 113px);
   vertical-align: top;
@@ -186,33 +191,33 @@ body.examples-index .main-content {
   height: 100%;
 }
 
-body[data-examplefile="examplesView.jsx"] .tile,
+body.examplesView_jsx .tile,
 #examplesView .tile {
   text-align: left;
   margin-bottom: 14px;
   margin-left: -5px;
 }
 
-body[data-examplefile="examplesView.jsx"] .tile h4,
+body.examplesView_jsx .tile h4,
 #examplesView .tile h4{
   text-align: center;
 }
 
 
-body[data-examplefile="examplesView.jsx"] .collection,
-body[data-examplefile="examplesView.jsx"] .model, 
+body.examplesView_jsx .collection,
+body.examplesView_jsx .model, 
 #examplesView .collection,
 #examplesView .model {
   height: 100%;
 }
 
-body[data-examplefile="examplesView.jsx"] iframe ,
+body.examplesView_jsx iframe ,
 #examplesView iframe {
   height: 100%;
   width: 100%;
 }
 
-body[data-examplefile="examplesView.jsx"] .tilegrid-react,
+body.examplesView_jsx .tilegrid-react,
 #examplesView .tilegrid-react {
   text-align: left;
   width: 380px;
@@ -221,20 +226,20 @@ body[data-examplefile="examplesView.jsx"] .tilegrid-react,
   padding-left: 5px;
 }
 
-body[data-examplefile="examplesView.jsx"] .tilegrid,
+body.examplesView_jsx .tilegrid,
 #examplesView .tilegrid {
   height: calc(100% - 25px);
   padding: 13px;
 }
 
-body[data-examplefile="examplesView.jsx"] .tile img,
+body.examplesView_jsx .tile img,
 #examplesView .tile img {
   float: left;
   height: 100px;
   margin-right: 7px;
 }
 
-body[data-examplefile="examplesView.jsx"] .content-pane,
+body.examplesView_jsx .content-pane,
 #examplesView .content-pane {
   display: inline-block;
   width: calc(100% - 400px);
@@ -245,7 +250,7 @@ body[data-examplefile="examplesView.jsx"] .content-pane,
   background-color: white;
 }
 
-body[data-examplefile="examplesView.jsx"] .content-pane {
+body.examplesView_jsx .content-pane {
   height: 1000px;
 }
 

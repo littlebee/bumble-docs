@@ -122,6 +122,9 @@ pressAnyKeyToContinue = (method) ->
 parseJsonFile = (file) ->
   return JSON.parse(fs.readFileSync(file))
   
+urlJoin = (paths...) ->
+  paths.join('/').replace('//', '/')
+  
 
 module.exports =
   systemCmd: systemCmd
@@ -131,3 +134,4 @@ module.exports =
   openTerminalTab: openTerminalTab
   pressAnyKeyToContinue: pressAnyKeyToContinue
   parseJsonFile: parseJsonFile
+  urlJoin: urlJoin

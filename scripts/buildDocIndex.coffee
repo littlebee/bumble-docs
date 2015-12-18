@@ -1,9 +1,23 @@
 #!/usr/bin/env coffee
-
-#!/usr/bin/env coffee
-OUTPUT_FILE = "docs/index.html"
+fs = require('fs')
+path = require('path')
+_ = require('underscore')
+marked = require('marked')
+nsh = require('node-syntaxhighlighter')
+language =  require('jsx-syntaxhighlighter')
 
 app = require('../src/lib/app')
+
+React = require('react')
+ReactDOMServer = require('react-dom/server')
+Layout = require('../src/layout')
+
+
+OUTPUT_FILE = "docs/index.html"
+DOCS_TARGET_DIR = 'docs'
+OUR_ROOT = path.join('node_modules', 'bumble-docs')
+SRC_DIR = path.join(OUR_ROOT, 'src')
+
 
 HELP = """
   This script creates the docs/index.html - the main static html file.  Your project's root 
@@ -26,42 +40,23 @@ options.parse(process.argv)
 
 app.initDocsDir()
 
-fs = require('fs')
-path = require('path')
-_ = require('underscore')
-marked = require('marked')
-nsh = require('node-syntaxhighlighter')
-language =  require('jsx-syntaxhighlighter')
-
-# script expects to be 
-DOCS_TARGET_DIR = 'docs'
-OUR_ROOT = path.join('node_modules', 'bumble-docs')
-SRC_DIR = path.join(OUR_ROOT, 'src')
-
 # marked is a markdown to html converter
 marked.setOptions(
   highlight: (code) ->
     nsh.highlight(code, language) 
 )
 
-indexTemplate = app.loadTemplate('index.tpl')
-headerTemplate = app.loadTemplate('header.tpl')
-
 readmeHtml = marked(fs.readFileSync('README.md').toString())
 
-headerHtml = headerTemplate
+indexHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
   relativeRoot: '..' 
   selectedItem: 0
   npmPackage: app.userNpmPackage
   configFile: app.configFile
-    
-indexHtml = indexTemplate
-  relativeRoot: '..'
-  header: headerHtml
-  content: readmeHtml
+  innerHtml: readmeHtml
   bodyClass: 'docs-index'
 
 console.log "creating #{options.outputFile}"
-fs.writeFileSync options.outputFile, indexHtml
+fs.writeFileSync options.outputFile, "<!DOCTYPE html>\n" + indexHtml
 
 

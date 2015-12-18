@@ -22,6 +22,8 @@ for confFile in ["bumbleDocs.coffee", "bumbleDocs.js"]
 configFile = require('../../bumbleDocs') # copied from the user app's root dir
 
 module.exports = class App 
+
+  @bumbleRelativeRoot: './node_modules/bumble-docs/'
   
   @loadTemplate: (templateFile) ->
     return _.template(fs.readFileSync(path.join(OUR_TEMPLATE_DIR, templateFile)).toString())
@@ -33,11 +35,14 @@ module.exports = class App
       fs.mkdirSync(dir) unless fs.existsSync(dir)
 
     for fileSpec in ["css/*.css", "vendor/*.js"]
-      files = glob.sync('./node_modules/bumble-docs/' + fileSpec)
+      files = glob.sync(@bumbleRelativeRoot + fileSpec)
       [dir] = fileSpec.split('/')
       for file in files
         target = "./docs/#{dir}/" + path.basename(file)
         fs.copySync(file, target, clobber: true)
+    
+    for fileSpec in ["src/examples/loadExample.js", 'src/examples/loadExamplesView.js']
+      fs.copySync(@bumbleRelativeRoot + fileSpec, "docs/examples/" + path.basename(fileSpec))
     
   @ourNpmPackage:  util.parseJsonFile('node_modules/bumble-docs/package.json')
   

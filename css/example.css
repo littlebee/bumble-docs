@@ -204,13 +204,6 @@ body.examplesView_jsx .tile h4,
 }
 
 
-body.examplesView_jsx .collection,
-body.examplesView_jsx .model, 
-#examplesView .collection,
-#examplesView .model {
-  height: 100%;
-}
-
 body.examplesView_jsx iframe ,
 #examplesView iframe {
   height: 100%;

@@ -41,28 +41,26 @@ moment = require('moment')
 
 coffeeReact = require('coffee-react')
 jsxTransform = require('coffee-react/lib/js-syntax-transform')
+require('node-jsx').install()
+
+React = require('react')
+ReactDOMServer = require('react-dom/server')
+Layout = require('../src/layout')
+ExampleFile = require('../src/examples/exampleFile')
 
 debugger
 
-exampleTemplate = app.loadTemplate('exampleFile.tpl')
-indexTemplate = app.loadTemplate('index.tpl')
-headerTemplate = app.loadTemplate('header.tpl')
-contentTemplate = app.loadTemplate('examplesContent.tpl')
-
-headerHtml = headerTemplate
+indexHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
   relativeRoot: '../..'
   selectedItem: 1
   npmPackage: app.userNpmPackage
   configFile: app.configFile
-
-contentHtml = contentTemplate()
-
-indexHtml = indexTemplate(
-  relativeRoot: '../..'
-  header: headerHtml
-  content: contentHtml
+  innerHtml: ''
   bodyClass: 'examples-index'
-)
+  scripts: [
+    {path: 'docs/examples/examplesView.js'}     # the viewer is also an example. it set's up window.Demo... 
+    {path: 'docs/examples/loadExamplesView.js'}      # ...and this little guy loads window.Demo into $('#demo')
+  ]
 
 indexFile = path.join(options.outputDir, 'index.html')
 metadataFile = path.join(options.outputDir, 'examplesMetadata.js')
@@ -74,17 +72,18 @@ fs.writeFileSync(indexFile, indexHtml)
 console.log "creating #{metadataFile}"
 fs.writeFileSync metadataFile, "window.EXAMPLES_METADATA = #{JSON.stringify(app.configFile.examples)}"
 
-exampleRoot = app.configFile.exampleRoot
-examples = app.configFile.examples
+exampleRoot = app.configFile.examples.root
+examples = app.configFile.examples.demos
 
 # don't add it to the metadata above / don't show it in the example viewer, but go ahead and treat
-# the viewer itself as an example (react-datum shows the example viewer as a demo)
+# the viewer itself as an example and compile it and a wrapper for it
+# (react-datum shows the example viewer as a demo)
 examples.push 
   id: "examplesView"
   path: "examplesView.jsx"
   
-
-for example in app.configFile.examples
+# should be using app.configFile.examples
+for example in examples  
   file = example.path
   console.log "creating " + file
     
@@ -109,7 +108,7 @@ for example in app.configFile.examples
   # console.log rawSource
   highlightedSource = nsh.highlight(rawSource, language) || rawSource
   
-  exampleFragment = exampleTemplate(
+  exampleFragment = ReactDOMServer.renderToStaticMarkup React.createElement ExampleFile,  
     sourceCode: highlightedSource
     # the example source compile from src/examples into respective
     # directories in docs/examples.   The compiled .js should already be there
@@ -118,13 +117,13 @@ for example in app.configFile.examples
     relativeFile: file
     simpleName: simpleName
     relativeRoot: relativeRoot
-  )
-  exampleHtml = indexTemplate(
+
+  exampleHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
     relativeRoot: relativeRoot
-    header: ""
-    content: exampleFragment
+    headless: true
+    innerHtml: exampleFragment
     bodyClass: "example #{file.replace(/[\/\.]/g, '_')}"
-  )
+  
   fs.writeFileSync htmlOutputFile, exampleHtml
   
   compiledJs = switch

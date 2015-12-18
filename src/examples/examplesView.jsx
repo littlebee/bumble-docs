@@ -8,7 +8,7 @@ var Rd = ReactDatum
 
 // EXAMPLES_METADATA is loaded by the index.html from ./examplesMetadata.js which is generated
 // by bumble-docs/scripts/buildExamples.coffee
-var examplesCollection = new Backbone.Collection(EXAMPLES_METADATA)
+var examplesCollection = new Backbone.Collection(EXAMPLES_METADATA.demos)
 
 
 // Each of the demos are wrapped in their own .html which is generated using /src/docs/exampleFile.tpl  
@@ -37,18 +37,20 @@ var DemoIframe = React.createClass({
 ExamplesView = React.createClass({
   render: function() {
     return (
-      <Rd.Collection collection={examplesCollection}>
-        <Rd.Tilegrid>
-          <Rd.LazyPhoto attr="thumbnailUrl"/>
-          <h4><Rd.Text attr="name"/></h4>
-          <div><Rd.Text attr="description" ellipsizeAt={false} displayAsHtml/></div>
-        </Rd.Tilegrid>
-        <div className="content-pane">
-          <Rd.SelectedModel placeholder="Select a demo from the list on the left">
-            <DemoIframe/>  
-          </Rd.SelectedModel>
-        </div>
-      </Rd.Collection>
+      <div id="examplesView">
+        <Rd.Collection collection={examplesCollection}>
+          <Rd.Tilegrid>
+            <Rd.LazyPhoto attr="thumbnailUrl"/>
+            <h4><Rd.Text attr="name"/></h4>
+            <div><Rd.Text attr="description" ellipsizeAt={false} displayAsHtml/></div>
+          </Rd.Tilegrid>
+          <div className="content-pane">
+            <Rd.SelectedModel placeholder="Select a demo from the list on the left">
+              <DemoIframe/>  
+            </Rd.SelectedModel>
+          </div>
+        </Rd.Collection>
+      </div>
     )
   },
   componentDidMount: function() {
@@ -65,4 +67,7 @@ ExamplesView = React.createClass({
   
 })
 
-window.Demo = ExamplesView
+if( window )
+  window.Demo = ExamplesView
+else if ( module )
+  module.exports = ExamplesView

@@ -33,6 +33,7 @@
     "jsx-syntaxhighlighter": "^0.1.0",
     "marked": "^0.3.5",
     "moment": "^2.10.6",
+    "node-jsx": "^0.13.3",
     "node-syntaxhighlighter": "^0.8.1",
     "react": "^0.14.1",
     "react-dom": "^0.14.1",

@@ -3,6 +3,17 @@ module.exports =
   
   logo: "docs/img/react-datum.logo.png",
 
+  # these get added to the css linked to the static examples and docs and copied to 
+  # docs/css
+  styleSheets: [{
+    path: "/css/docs/tilegridExample.css"
+    media: "screen"
+  }]
+
+  scripts: [{
+    path: "/test/lib/kittenData.js"
+  }]
+  
   apiDocs: {
     sections: [{
       label: "Datum Components" 

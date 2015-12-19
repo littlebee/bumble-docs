@@ -143,14 +143,11 @@ body > header .main-menu-item:hover {
   position: absolute;
 }
 
-
-
 .component-doc .signature {
   float: right;
   margin-top: 4px;
   margin-right: 35px;
 }
-
 
 .doc-content h2 {
   text-align: center;

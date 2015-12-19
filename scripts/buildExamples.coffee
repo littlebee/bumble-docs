@@ -119,6 +119,8 @@ for example in examples
     relativeRoot: relativeRoot
 
   exampleHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
+    npmPackage: app.userNpmPackage
+    configFile: app.configFile
     relativeRoot: relativeRoot
     headless: true
     innerHtml: exampleFragment

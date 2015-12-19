@@ -19,7 +19,6 @@ module.exports = class exampleFile extends React.Component
         <h3>The Code:</h3> 
         <div dangerouslySetInnerHTML={{__html: @props.sourceCode}}/>
       </div>
-      <script src="#{@props.relativeRoot}/test/lib/kittenData.js"/>
       <script src={@props.sourceFile}/>
       <script src="#{@props.relativeRoot}/docs/examples/loadExample.js"/>
     </div>

@@ -1,5 +1,6 @@
 
 var Rd = ReactDatum
+var Tilegrid = ReactTilegrid
 
 // This is the source for the left-right iframe viewer used to
 // view examples on our github.io pages like http://zulily.github.io/react-datum/docs/examples
@@ -22,9 +23,9 @@ var DemoIframe = React.createClass({
     model: React.PropTypes.instanceOf(Backbone.Model)
   },
   render: function() {
-    model = this.getModel()
-    srcPath = model.get('path')
-    htmlPath = srcPath.replace(/(.*)(\.jsx|\.js|\.coffee|\.cjsx)/, "$1.html")
+    var model = this.getModel()
+    var srcPath = model.get('path')
+    var htmlPath = srcPath.replace(/(.*)(\.jsx|\.js|\.coffee|\.cjsx)/, "$1.html")
     return <iframe src={htmlPath}/>
   },
   
@@ -34,7 +35,7 @@ var DemoIframe = React.createClass({
 })
 
 
-ExamplesView = React.createClass({
+var ExamplesView = React.createClass({
   render: function() {
     return (
       <div id="examplesView">
@@ -55,11 +56,11 @@ ExamplesView = React.createClass({
   },
   componentDidMount: function() {
     if( window && window.location && window.location.hash ){
-      idToSelect = window.location.hash.slice(1)
+      var idToSelect = window.location.hash.slice(1)
       _.delay(function(){examplesCollection.selectModelById(idToSelect)}, 1000)
     }
     examplesCollection.on('selectionsChanged', function(){
-      model = examplesCollection.getSelectedModels()[0]
+      var model = examplesCollection.getSelectedModels()[0]
       window.location.hash = model && model.id || ""
     })
 

@@ -40,8 +40,7 @@ _ = require('underscore')
 moment = require('moment')
 
 coffeeReact = require('coffee-react')
-jsxTransform = require('coffee-react/lib/js-syntax-transform')
-require('node-jsx').install()
+babel = require('babel-core')
 
 React = require('react')
 ReactDOMServer = require('react-dom/server')
@@ -131,7 +130,7 @@ for example in examples
   compiledJs = switch
     when ext == '.js' then rawSource
     when ext in ['.coffee', '.cjsx'] then coffeeReact.compile(rawSource) 
-    when ext in ['.jsx'] then jsxTransform(rawSource)
+    when ext in ['.jsx'] then babel.transform(rawSource, filename: fullPathAndFile).code
     
   fs.writeFileSync jsOutputFile, compiledJs
   

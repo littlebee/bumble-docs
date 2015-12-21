@@ -45,7 +45,7 @@ Toc = React.createClass
     
   renderTocSections: ->
     sections = for section, index in @props.sections
-      <TocSection key={"tocsection-" + index} label={section.label} listComponents={section.documentorData.classes}/>
+      <TocSection key={"tocsection-" + index} label={section.label} listComponents={section.documentorData?.classes}/>
     return sections
 
 Markdown = React.createClass
@@ -126,7 +126,7 @@ DocContent = React.createClass
     
   renderSections: () ->
     sections = for section,index in @props.sections
-      <DocSection key={"docsection-" + index} label={section.label} listComponents={section.documentorData.classes}/> 
+      <DocSection key={"docsection-" + index} label={section.label} listComponents={section.documentorData?.classes}/> 
     return sections
 
     

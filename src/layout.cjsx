@@ -46,6 +46,8 @@ module.exports = class Layout extends React.Component
   },{
     path:     "/docs/vendor/react-datum.min.js"
   },{
+    path:     "/docs/vendor/tilegrid.min.js"
+  },{
     path:     "/docs/examples/examplesMetadata.js"
   }]
   
@@ -114,6 +116,6 @@ module.exports = class Layout extends React.Component
     # load any user style sheets or scripts last so they get final word up
     configFileThings = @props.configFile?[type] || []
     things = things.concat(configFileThings)
-
+    
     return things
       

@@ -23,7 +23,7 @@ module.exports =
     }]
   }
 
-  examples: 
+  examples: {
     root: 'examples'
     demos: [{
       id: "bigKittens",
@@ -31,3 +31,4 @@ module.exports =
       path: "tilegrid.jsx",
       description: "This demo shows off the variable height and width capabilities of the tiles.  ...with kittens!"
     }]    
+  }

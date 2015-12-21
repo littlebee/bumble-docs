@@ -23,28 +23,61 @@ Some of the configurable variables of the generated docs, come from the package.
 ### bumbleDocs.js
 
 Create a file named bumbleDocs.js or .coffee in your project root that module.exports the following attributes:
-  
-  **logo**: Expects a project root relative image path that is the src for the image displayed in the upper left header. ex: `logo: "img/logo.png"` should find and use the logo.png file
-  
-  **examples**: Expects an array of objects, each with the attributes: 
-    [{
-      // a unique id please
-      id: "model",
-      // name to display in viewer tile
-      name: "Model Demo",
-      // path to the src file for the demo
-      path: "src/docs/examples/model.html",
-      // this can be html - describe the demo and tell user about interesting features
-      description: "This demo shows how simple it is to create a display only form.", 
-      // a thumbnail image of the working demo 
-      thumbnailUrl: "http://zulily.github.io/react-datum/docs/img/react-datum_model-example.png",
+
+```coffeescript
+  module.exports = 
+    
+    # Expects a project root relative image path that is the src for the image displayed 
+    # in the upper left header.  
+    logo: "img/docs/tilegrid.logo.png"
+
+    # these get added to the css linked to the static examples and docs and copied to 
+    # docs/css
+    styleSheets: [{
+      path: "css/docs/tilegridExample.css"
+      media: "screen"
+    }]
+
+    # these will get added as script tags into the generated pages 
+    scripts: [{
+      path: "test/lib/kittenData.js"
+      # can also include the type (defaults to text/javascript)
+      # type: "someSillyScriptLanguage"
+    },{
+      path: "dist/tilegrid.js"
     }]
     
-    Each examples gets its own html wrapper that enables it to be run statically and standalone for easy debugging.
     
-    An example viewer app that has a list left, demo and code on the right layout is also created in docs/examples/index.html.
+    apiDocs: {
+      # in the generated API docs, you can have sections. documentation found in the 
+      # sources returned by the path glob will be in the section with a header
+      # and sections are rendered in the order below
+      sections: [{
+        label: "Tilegrid" 
+        # this can be any glob supported by https://github.com/isaacs/node-glob
+        path: "src/tilegrid/**/*"
+      }]
+    }
+
+    examples: {
+      # a base path for all examples (defaults to '$project_root/examples')
+      root: 'examples'
+      demos: [{
+        # should be unique (gets used as a backbone id)
+        id: "bigKittens"
+        name: "Big Kittens Demo!"
+        # path joined to examples.root 
+        path: "tilegrid.jsx"
+        # this can be as long as you need and include HTML
+        description: "This demo shows off the variable height and width capabilities of the tiles.  ...with kittens!"
+      }]    
+    }
+  ```
+  Each examples gets its own html wrapper that enables it to be run statically and standalone for easy debugging.
+  
+  An example viewer app that has a list left, demo and code on the right layout is also created in docs/examples/index.html.
     
-    
+
   
   
   

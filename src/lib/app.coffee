@@ -16,7 +16,7 @@ util = require './util'
 # copy it to bumble-docs root 
 for confFile in ["bumbleDocs.coffee", "bumbleDocs.js"]
   if fs.existsSync(confFile)
-    fs.copySync(confFile, "node_modules/bumble-docs/" + confFile)
+    fs.copySync(confFile, path.join("node_modules", "bumble-docs", confFile))
 
 # ... and require it from there
 configFile = require('../../bumbleDocs') # copied from the user app's root dir

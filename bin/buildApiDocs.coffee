@@ -103,7 +103,7 @@ for section in sections
 
 indexHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
   relativeRoot: '../..'
-  selectedItem: 2
+  selectedTab: 2
   npmPackage: app.userNpmPackage
   configFile: app.configFile
   innerHtml: ReactDOMServer.renderToStaticMarkup(

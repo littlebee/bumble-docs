@@ -51,11 +51,12 @@ debugger
 
 indexHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
   relativeRoot: '../..'
-  selectedItem: 1
+  selectedTab: 0
   npmPackage: app.userNpmPackage
   configFile: app.configFile
   innerHtml: ''
   bodyClass: 'examples-index'
+  # TODO make configurable via user bumbleDocs conf file
   scripts: [
     {path: 'docs/examples/examplesView.js'}     # the viewer is also an example. it set's up window.Demo... 
     {path: 'docs/examples/loadExamplesView.js'}      # ...and this little guy loads window.Demo into $('#demo')
@@ -122,6 +123,7 @@ for example in examples
     configFile: app.configFile
     relativeRoot: relativeRoot
     headless: true
+    selectedTab: 1
     innerHtml: exampleFragment
     bodyClass: "example #{file.replace(/[\/\.]/g, '_')}"
   

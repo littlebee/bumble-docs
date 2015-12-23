@@ -50,7 +50,7 @@ readmeHtml = marked(fs.readFileSync('README.md').toString())
 
 indexHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
   relativeRoot: '..' 
-  selectedItem: 0
+  selectedTab: 0
   npmPackage: app.userNpmPackage
   configFile: app.configFile
   innerHtml: readmeHtml

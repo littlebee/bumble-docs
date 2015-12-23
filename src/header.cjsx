@@ -5,6 +5,7 @@ Util = require('./lib/util')
 
 module.exports = class Header extends React.Component
 
+  # TODO : let the user change this in their bumbleDocs.js config
   tabs: [{
     path: "/docs" 
     title: "Introduction and Getting Started"
@@ -36,7 +37,9 @@ module.exports = class Header extends React.Component
   renderTabs: =>
     renderedTabs = for tab,index in @tabs
       fullRelativePath = Util.urlJoin @props.relativeRoot, tab.path
-      <a className='main-menu-item' href={fullRelativePath} key="tab-#{index}">{tab.title} </a>
+      className = 'main-menu-item'
+      className += ' selected' if @props.selectedTab == index
+      <a className={className} href={fullRelativePath} key="tab-#{index}">{tab.title} </a>
     return renderedTabs
 
     

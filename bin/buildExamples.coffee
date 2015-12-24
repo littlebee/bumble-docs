@@ -51,7 +51,7 @@ debugger
 
 indexHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
   relativeRoot: '../..'
-  selectedTab: 0
+  selectedTab: 1
   npmPackage: app.userNpmPackage
   configFile: app.configFile
   innerHtml: ''

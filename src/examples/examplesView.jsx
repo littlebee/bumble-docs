@@ -1,6 +1,6 @@
 
 var Rd = ReactDatum
-var Tilegrid = ReactTilegrid
+var ReactTilegrid = Tilegrid.ReactTilegrid
 
 // This is the source for the left-right iframe viewer used to
 // view examples on our github.io pages like http://zulily.github.io/react-datum/docs/examples
@@ -40,11 +40,11 @@ var ExamplesView = React.createClass({
     return (
       <div id="examplesView">
         <Rd.Collection collection={examplesCollection}>
-          <Rd.Tilegrid>
+          <ReactTilegrid>
             <Rd.LazyPhoto attr="thumbnailUrl"/>
             <h4><Rd.Text attr="name"/></h4>
             <div><Rd.Text attr="description" ellipsizeAt={false} displayAsHtml/></div>
-          </Rd.Tilegrid>
+          </ReactTilegrid>
           <div className="content-pane">
             <Rd.SelectedModel placeholder="Select a demo from the list on the left">
               <DemoIframe/>  

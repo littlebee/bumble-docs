@@ -102,6 +102,11 @@ body > header .main-menu-item:hover {
   overflow: auto;
 }
 
+.toc ul li ul,
+.toc ul ul li  {
+  margin-left: 12px;
+}
+
 .doc-content {
   position: relative;
   left: 235px;
@@ -109,6 +114,39 @@ body > header .main-menu-item:hover {
   max-width: 900px;
   overflow: auto;
 }
+
+.doc-content h2 {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.component-doc h3 {
+  background: linear-gradient(to right, #B7BED0, white);
+  padding-left: 7px;
+}
+
+h5.method-name {
+    margin-bottom: -12px;
+}
+
+.classvar-reference {
+  margin-bottom: 10px;
+}
+
+.component-doc .signature {
+  float: right;
+  margin-top: 4px;
+  margin-right: 35px;
+}
+
+.component-doc .content {
+  margin-right: 20px;
+}
+
+.component-doc .method .markdown {
+  margin-left: 22px;
+}
+
 
 .no-gutter .syntaxhighlighter .gutter {
   display: none;
@@ -121,44 +159,4 @@ body > header .main-menu-item:hover {
 .no-gutter .syntaxhighlighter code.plain {
   color: #2a00ff !important;
 }
-
-.component-doc h3 {
-  background: linear-gradient(to right, #B7BED0, white);
-  padding-left: 7px;
-}
-
-.classvar-reference {
-  margin-bottom: 10px;
-}
-
-/* from  http://codepen.io/chrissp26/pen/gBrdo */
-.followMeBar.fixed {
-  position: fixed;
-  width: 100%;
-  top: 100px;
-  max-width: 900px;
-}
-
-.followMeBar.fixed.absolute {
-  position: absolute;
-}
-
-.component-doc .signature {
-  float: right;
-  margin-top: 4px;
-  margin-right: 35px;
-}
-
-.doc-content h2 {
-  text-align: center;
-  margin-top: 25px;
-}
-
-.component-doc .content {
-  margin-right: 20px;
-}
-
-
-
-
 

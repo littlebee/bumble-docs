@@ -49,9 +49,13 @@ ExampleFile = require('../src/examples/exampleFile')
 
 debugger
 
+unless app.configFile.examples?
+  console.log "examples attribute not found in bumbleDocs.js (skipping)"
+  process.exit(0)
+
 indexHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
   relativeRoot: '../..'
-  selectedTab: 1
+  selectedTab: '/docs/examples'
   npmPackage: app.userNpmPackage
   configFile: app.configFile
   innerHtml: ''
@@ -123,7 +127,7 @@ for example in examples
     configFile: app.configFile
     relativeRoot: relativeRoot
     headless: true
-    selectedTab: 1
+    selectedTab: '/docs/examples'
     innerHtml: exampleFragment
     bodyClass: "example #{file.replace(/[\/\.]/g, '_')}"
   

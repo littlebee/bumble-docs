@@ -40,9 +40,9 @@ module.exports = class App
       for file in files
         target = "./docs/#{dir}/" + path.basename(file)
         fs.copySync(file, target, clobber: true)
-    
-    for fileSpec in ["src/examples/loadExample.js", 'src/examples/loadExamplesView.js']
-      fs.copySync(@bumbleRelativeRoot + fileSpec, "docs/examples/" + path.basename(fileSpec))
+    if configFile.examples?
+      for fileSpec in ["src/examples/loadExample.js", 'src/examples/loadExamplesView.js']
+        fs.copySync(@bumbleRelativeRoot + fileSpec, "docs/examples/" + path.basename(fileSpec))
     
   @ourNpmPackage:  util.parseJsonFile('node_modules/bumble-docs/package.json')
   

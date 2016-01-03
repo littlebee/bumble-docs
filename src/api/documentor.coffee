@@ -2,7 +2,7 @@ _ = require('underscore')
 fs = require('fs')
 path = require('path')
 glob = require('glob')
-str = require('bumble-strings')
+Str = require('bumble-strings')
 
 module.exports = class Documentor 
   # comments get handled first, if we are in a comment, then 
@@ -23,7 +23,7 @@ module.exports = class Documentor
   processFiles: (srcDirs, moduleData) ->
     srcDirs = [srcDirs] unless _.isArray srcDirs
     for srcDir in srcDirs
-      isGlob = str.has(srcDir, "*")
+      isGlob = Str.has(srcDir, "*")
       unless isGlob 
         if fs.existsSync(srcDir) && fs.lstatSync(srcDir).isDirectory()
           srcDir = path.join(srcDir, "**/*")
@@ -97,17 +97,24 @@ module.exports = class Documentor
   handleComment: (line) =>
     matches = line.match(@commentRegex)
     if @inComment
+      unless @inCode 
+        # otherwise Marked will treat it as code
+        line = Str.trim(line)
+      
+      @inCode ^= line.match(/^\s*\`\`\`/)?.length > 0
+      
       if matches?.length > 0
         @inComment = false
       else
         @lastComments.push line
       return true
     else if matches?.length > 0
-      # if there are opening and closing block comment on same line
       if matches.length > 1
         @lastComments.push line.replace(/\#\#\#/g, '')
       else
         @inComment = true
+        @inCode = false
+
       return true
       
     return false

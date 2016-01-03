@@ -21,7 +21,6 @@ module.exports = class Layout extends React.Component
     path: "/docs/css/syntaxHighlight.css"
   },{
     path: "/docs/css/docs.css"
-    media: "screen"
   },{
     path: "/docs/css/example.css"
     media: "screen"

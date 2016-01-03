@@ -76,9 +76,6 @@ nsh = require('node-syntaxhighlighter')
 language =  require('jsx-syntaxhighlighter')
 strHelp = require('bumble-strings')
 
-
-React = require('react')
-ReactDOMServer = require('react-dom/server')
 Layout = require('../src/layout')
 
 # marked is a markdown to html converter
@@ -103,7 +100,7 @@ for section in sections
 
 indexHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
   relativeRoot: '../..'
-  selectedTab: 2
+  selectedTab: '/docs/api'
   npmPackage: app.userNpmPackage
   configFile: app.configFile
   innerHtml: ReactDOMServer.renderToStaticMarkup(

@@ -1,6 +1,6 @@
 {
   "name": "bumble-docs",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "API and examples documentation generator that probably won't work with your code :)",
   "main": "src/index.js",
   "scripts": {

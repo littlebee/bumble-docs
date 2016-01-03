@@ -20,6 +20,11 @@ body > header {
   z-index: 1000;
 }
 
+body > header h1 {
+  margin-top: 1px;
+  margin-left: 19px;
+}
+
 body > header img {
   float: left;
 }

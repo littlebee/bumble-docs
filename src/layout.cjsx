@@ -58,7 +58,7 @@ module.exports = class Layout extends React.Component
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         
         {@renderStyleSheets()}
-        <title>react-datum</title>
+        <title>{@props.npmPackage.name}</title>
       </head>
       
       <body className={@props.bodyClass}>

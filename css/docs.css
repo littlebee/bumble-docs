@@ -7,6 +7,13 @@ body {
   height: 99%;
 }
 
+/* 
+  bootstrap-light sets this to none by default, but we need to respect bulleted lists
+  from markdown conversion to ULs
+*/
+ul {
+  list-style: circle inside;
+}
 
 body > header {
   background-color: #B7BED0;

@@ -45,10 +45,16 @@ module.exports = class Layout extends React.Component
   },{
     path:     "/docs/vendor/react-datum.min.js"
   },{
-    path:     "/docs/vendor/tilegrid.min.js"
-  },{
     path:     "/docs/examples/examplesMetadata.js"
   }]
+  
+  constructor: ->
+    super
+    # tilegrid uses bumble-docs and wants it's latest dist version, 
+    # unminified for debugging   see /bumbleDocs.coffee in tilegrid
+    unless @props.npmPackage.name == 'tilegrid'
+      @scripts.push {path: "/docs/vendor/tilegrid.min.js"}
+    
   
   render: ->
     <html>
@@ -110,11 +116,11 @@ module.exports = class Layout extends React.Component
   # type should be "scripts" or "styleSheets"
   _getAllOf: (type) ->
     things = @[type]
+    things = things.concat @props.configFile?[type] || []
+    
+    # examples view and load script need to load last
     things = things.concat(@props[type]) if @props[type]?
 
-    # load any user style sheets or scripts last so they get final word up
-    configFileThings = @props.configFile?[type] || []
-    things = things.concat(configFileThings)
     
     return things
       

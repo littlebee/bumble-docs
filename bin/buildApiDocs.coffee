@@ -4,6 +4,17 @@ OUTPUT_FILE = "docs/api/index.html"
 util = require('../src/lib/util')
 app = require('../src/lib/app')
 
+unless app.configFile?
+  console.log "./bumbleDocs.(js|coffee) not found.  Skipping api docs generation and build.  See https://github.com/littlebee/bumble-docs"
+  process.exit(0)
+  
+
+unless app.configFile.apiDocs?
+  console.log "`apiDocs:` section not found in ./bumbleDocs.(js|coffee).  Skipping api docs generation and build."
+  process.exit(0)
+  
+
+
 HELP = """
   This script walks a tree of coffeescript & cjsx and pulls out any ### comments and
   associates them with the next class or method.  

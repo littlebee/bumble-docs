@@ -12,14 +12,19 @@ OUR_TEMPLATE_DIR = 'node_modules/bumble-docs/src/'
 
 util = require './util'
 
+configFileFound = false
+
 # node.js will not allow us to require something from the user app's dir, so
 # copy it to bumble-docs root 
 for confFile in ["bumbleDocs.coffee", "bumbleDocs.js"]
   if fs.existsSync(confFile)
     fs.copySync(confFile, path.join("node_modules", "bumble-docs", confFile))
+    configFileFound = true
+
 
 # ... and require it from there
-configFile = require('../../bumbleDocs') # copied from the user app's root dir
+if configFileFound
+  configFile = require('../../bumbleDocs') # copied from the user app's root dir
 
 module.exports = class App 
 
@@ -31,6 +36,8 @@ module.exports = class App
     
   # creates docs/ dir in application using us's root. Adds files that are missing 
   @initDocsDir: () ->
+    return false unless configFile?
+    
     for dir in ['./docs', './docs/api', './docs/css', './docs/examples', './docs/img']
       fs.mkdirSync(dir) unless fs.existsSync(dir)
 

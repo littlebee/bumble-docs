@@ -8,6 +8,11 @@ language =  require('jsx-syntaxhighlighter')
 
 app = require('../src/lib/app')
 
+unless app.configFile?
+  console.log "./bumbleDocs.(js|coffee) not found.  Skipping docs generation and build.  See https://github.com/littlebee/bumble-docs"
+  process.exit(0)
+  
+
 React = require('react')
 ReactDOMServer = require('react-dom/server')
 Layout = require('../src/layout')

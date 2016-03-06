@@ -49,6 +49,10 @@ ExampleFile = require('../src/examples/exampleFile')
 
 debugger
 
+unless app.configFile?
+  console.log "./bumbleDocs.(js|coffee) not found.  Skipping examples build.  See https://github.com/littlebee/bumble-docs"
+  process.exit(0)
+  
 unless app.configFile.examples?
   console.log "examples attribute not found in bumbleDocs.js (skipping)"
   process.exit(0)

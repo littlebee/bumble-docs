@@ -19,6 +19,8 @@ ClassVariable = React.createClass
   renderLinks: (code, attr)->
     # pull out any extends to show "see also link to other api doc"
     matches = code[0].match(/^[^\:]*\:\s*(\_\.extend[^\,]*\,\s*([^\,]*)?\,?\s*([^\,]*)?\,?\s*([^\,]*))?/)
+    return null unless matches?.length > 0
+    
     links = []
     for extendedClassVar, index in matches.slice(2) 
       if extendedClassVar?.length > 0

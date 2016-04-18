@@ -1,3 +1,12 @@
+## [0.4.6](https://github.com/littlebee/bumble-docs.git/compare/0.4.5...0.4.6) (2016-04-109)
+
+
+### Bugs Fixed in this Release
+* [23c7dc6](https://github.com/littlebee/bumble-docs.git/commit/23c7dc61438f5908a934cd4f33edd2333eec2b89)  add guard against mismatch in docContent links generator
+
+### Other Commits
+* [495d658](https://github.com/littlebee/bumble-docs.git/commit/495d65847e8f00902fb5ecd9b4c824020fd0de59) add a sample bumbleDocs.coffee file
+
 ## [0.4.5](https://github.com/littlebee/bumble-docs.git/compare/0.4.4...0.4.5) (2016-03-66)
 
 

@@ -1,3 +1,9 @@
+## [0.5.0](https://github.com/littlebee/bumble-docs.git/compare/0.4.6...0.5.0) (2016-11-326)
+
+
+### Other Commits
+* [20aa65a](https://github.com/littlebee/bumble-docs.git/commit/20aa65a65acddfdc24927aec7ab8f65e5f562113) always show propTypes and default props in docs and toc
+
 ## [0.4.6](https://github.com/littlebee/bumble-docs.git/compare/0.4.5...0.4.6) (2016-04-109)
 
 

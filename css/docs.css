@@ -145,6 +145,10 @@ h5.method-name {
   margin-bottom: 10px;
 }
 
+.component-doc {
+  margin-top: 40px;
+}
+
 .component-doc .signature {
   float: right;
   margin-top: 4px;

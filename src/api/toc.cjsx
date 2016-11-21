@@ -11,7 +11,7 @@ TocListItems = React.createClass
     for klass in @props.listComponents
       lis.push <li key={klass.id}>
         <a href={'#' + klass.name}><h5>{klass.name}</h5></a>
-        {@renderClassVariable(klass, 'propTypes', 'Properties')}
+        {@renderClassVariable(klass, 'propTypes', 'Properties', force: true)}
         {@renderClassVariable(klass, 'defaultProps', 'Default Properties')}
         {@renderClassVariable(klass, 'contextTypes', 'Context Variables')}
         {@renderClassMethods(klass)}
@@ -24,8 +24,12 @@ TocListItems = React.createClass
       </ul>
     )
   
-  renderClassVariable: (klass, attr, label) ->
-    return null unless klass[attr]?
+  renderClassVariable: (klass, attr, label, options={}) ->
+    options = _.defaults options,
+      force: false
+      
+    return null unless options.force || klass[attr]? 
+    
     labelLink = "##{klass.name}-#{attr}"
     <ul>
       <a href={labelLink}>{label}</a>

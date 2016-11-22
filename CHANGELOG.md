@@ -1,3 +1,9 @@
+## [0.5.1](https://github.com/littlebee/bumble-docs.git/compare/0.5.0...0.5.1) (2016-11-327)
+
+
+### Bugs Fixed in this Release
+* [431d1f8](https://github.com/littlebee/bumble-docs.git/commit/431d1f847f5e2c0de6143807aa577581f56e9e2c)  method matcher should tolerate lack of () in function definition and ignore blank lines
+
 ## [0.5.0](https://github.com/littlebee/bumble-docs.git/compare/0.4.6...0.5.0) (2016-11-326)
 
 

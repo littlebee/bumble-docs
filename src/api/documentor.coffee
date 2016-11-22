@@ -7,7 +7,7 @@ Str = require('bumble-strings')
 module.exports = class Documentor 
   # comments get handled first, if we are in a comment, then 
   commentRegex: /\#\#\#/g
-  methodRegex: /^\s*((this\.|\@)*[\w\.]*)\s*[\:\=]\s*\((.*)\).*/
+  methodRegex: /^\s*((this\.|\@)*[\w\.]*)\s*[\:\=]\s*\(?(.*)\)?\s*[\-\=]\>.*/
   classRegex: /^.*class\s+([\w\.]+)\s*(extends(.*))?\s*$/
   propTypesRegex: /^(\s*)[^\#]*[\@\.]propTypes.*$/
   contextTypesRegex: /^(\s*)[^\#]*[\@\.]contextTypes.*$/
@@ -150,7 +150,7 @@ module.exports = class Documentor
       matches = line.match /^(\s*).*$/
       return true unless matches?.length > 1
       whitespace = matches[1]
-      if whitespace.length > (@currentWhiteSpace?.length || 0)
+      if whitespace.length == 0 || whitespace.length > (@currentWhiteSpace?.length || 0)
         storageObj[type] ||= []
         storageObj[type].push line
       else

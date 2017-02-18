@@ -1,3 +1,9 @@
+## [0.5.2](https://github.com/littlebee/bumble-docs.git/compare/0.5.1...0.5.2) (2017-02-18)
+
+
+### Other Commits
+* [953e6ad](https://github.com/littlebee/bumble-docs.git/commit/953e6ad7da431657a4b071bc672395657f5c9cda) limit docs gen to coffee and cjsx files
+
 ## [0.5.1](https://github.com/littlebee/bumble-docs.git/compare/0.5.0...0.5.1) (2016-11-327)
 
 

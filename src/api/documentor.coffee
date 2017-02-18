@@ -26,7 +26,7 @@ module.exports = class Documentor
       isGlob = Str.has(srcDir, "*")
       unless isGlob 
         if fs.existsSync(srcDir) && fs.lstatSync(srcDir).isDirectory()
-          srcDir = path.join(srcDir, "**/*")
+          srcDir = path.join(srcDir, "**/(*.coffee|*.cjsx)")
           isGlob = true
       
       if isGlob

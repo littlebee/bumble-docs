@@ -7,6 +7,8 @@ Str = require('bumble-strings')
 module.exports = class Documentor 
   # comments get handled first, if we are in a comment, then 
   commentRegex: /\#\#\#/g
+  closedCommentRegex: /\#\#\#.*\#\#\#/g
+  pragmaRegex: /\#\#\#\s*\!pragma.*\#\#\#/g
   methodRegex: /^\s*((this\.|\@)*[\w\.]*)\s*[\:\=]\s*\(?(.*)\)?\s*[\-\=]\>.*/
   classRegex: /^.*class\s+([\w\.]+)\s*(extends(.*))?\s*$/
   propTypesRegex: /^(\s*)[^\#]*[\@\.]propTypes.*$/
@@ -95,21 +97,24 @@ module.exports = class Documentor
       
       
   handleComment: (line) =>
-    matches = line.match(@commentRegex)
+    matches = !@pragmaRegex.test(line) && @commentRegex.test(line)
+    # if matches
+    #   console.log 'matches', matches, line,  !@pragmaRegex.test(line)
+      
     if @inComment
       unless @inCode 
         # otherwise Marked will treat it as code
         line = Str.trim(line)
       
-      @inCode ^= line.match(/^\s*\`\`\`/)?.length > 0
+      @inCode ^= /^\s*\`\`\`/.test(line)
       
-      if matches?.length > 0
+      if matches
         @inComment = false
       else
         @lastComments.push line
       return true
-    else if matches?.length > 0
-      if matches.length > 1
+    else if matches
+      if @closedCommentRegex.test line
         @lastComments.push line.replace(/\#\#\#/g, '')
       else
         @inComment = true
@@ -146,6 +151,8 @@ module.exports = class Documentor
     
     
   _handleBlockType: (line, regex, storageObj, type) =>
+    # console.log '_handleBlockType', line, regex, type, @inblock
+    
     if @inBlock == type
       matches = line.match /^(\s*).*$/
       return true unless matches?.length > 1

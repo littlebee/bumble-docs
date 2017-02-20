@@ -1,3 +1,9 @@
+## [0.5.3](https://github.com/littlebee/bumble-docs.git/compare/0.5.2...0.5.3) (2017-02-20)
+
+
+### Other Commits
+* [a3b35bb](https://github.com/littlebee/bumble-docs.git/commit/a3b35bb1f361062e747ffdde186dcb45de53289c) add support for ignoring coffee-coverage pragma comments
+
 ## [0.5.2](https://github.com/littlebee/bumble-docs.git/compare/0.5.1...0.5.2) (2017-02-18)
 
 

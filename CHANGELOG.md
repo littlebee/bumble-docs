@@ -1,3 +1,9 @@
+## [0.5.4](https://github.com/littlebee/bumble-docs.git/compare/0.5.3...0.5.4) (2018-04-4)
+
+
+### Other Commits
+* [df801a9](https://github.com/littlebee/bumble-docs.git/commit/df801a97bedfd41105556b0759591c2a4845d89c) update coffee-react to 5.0.1 to support react 16
+
 ## [0.5.3](https://github.com/littlebee/bumble-docs.git/compare/0.5.2...0.5.3) (2017-02-20)
 
 

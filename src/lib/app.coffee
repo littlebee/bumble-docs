@@ -41,7 +41,9 @@ module.exports = class App
     for dir in ['./docs', './docs/api', './docs/css', './docs/examples', './docs/img']
       fs.mkdirSync(dir) unless fs.existsSync(dir)
 
-    for fileSpec in ["css/*.css", "vendor/*.js"]
+    # for now, no vendor js is shipped with this repo and if it is, it should be copied 
+    #  from node_modules the way that react-datum Gruntfile does it
+    for fileSpec in ["css/*.css"]   # , "vendor/*.js"]     
       files = glob.sync(@bumbleRelativeRoot + fileSpec)
       [dir] = fileSpec.split('/')
       for file in files

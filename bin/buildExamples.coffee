@@ -140,7 +140,7 @@ for example in examples
   compiledJs = switch
     when ext == '.js' then rawSource
     when ext in ['.coffee', '.cjsx'] then coffeeReact.compile(rawSource) 
-    when ext in ['.jsx'] then babel.transform(rawSource, filename: fullPathAndFile).code
+    when ext in ['.jsx'] then babel.transform(rawSource).code
     
   fs.writeFileSync jsOutputFile, compiledJs
   

@@ -1,3 +1,9 @@
+## [0.5.5](https://github.com/littlebee/bumble-docs.git/compare/0.5.4...0.5.5) (2018-04-4)
+
+
+### Other Commits
+* [fac49d0](https://github.com/littlebee/bumble-docs.git/commit/fac49d0c84263d64520798112e708b98b5b91d08) upgrade babel presets to latest
+
 ## [0.5.4](https://github.com/littlebee/bumble-docs.git/compare/0.5.3...0.5.4) (2018-04-4)
 
 

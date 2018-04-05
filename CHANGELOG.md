@@ -1,3 +1,9 @@
+## [0.6.1](https://github.com/littlebee/bumble-docs.git/compare/0.6.0...0.6.1) (2018-04-5)
+
+
+### Other Commits
+* [df361de](https://github.com/littlebee/bumble-docs.git/commit/df361de2cde5c5c7c9e151cba256055e19676949) add babel-plugin-transform-class-properties when building ES6 examples
+
 ## [0.6.0](https://github.com/littlebee/bumble-docs.git/compare/0.5.5...0.6.0) (2018-04-5)
 
 

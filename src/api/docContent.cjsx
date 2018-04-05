@@ -5,7 +5,7 @@ _ = require('underscore')
 Markdown = require('./markdown')
 Methods = require('./methods')
 
-ClassVariable = React.createClass
+class ClassVariable extends React.Component
   render: ->
     code = @props.klass[@props.attr]
     return null unless @props.force || code?.length > 0 
@@ -40,7 +40,7 @@ ClassVariable = React.createClass
     <Markdown className="no-gutter" content={code.slice(1)} />
     
     
-DocSection = React.createClass
+class DocSection extends React.Component
   render: ->
     <section>
       <h2>{@props.label}</h2>
@@ -67,7 +67,7 @@ DocSection = React.createClass
     return contents
       
 
-module.exports = DocContent = React.createClass 
+module.exports = class DocContent extends React.Component 
   render: ->
     <div className='doc-content'>
       {@renderSections()}

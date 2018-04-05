@@ -14,7 +14,7 @@ marked.setOptions
   pedantic: true
 
 
-module.exports = Markdown = React.createClass
+module.exports = class Markdown extends React.Component
   render: ->
     contents = @getContents()
     return null unless contents?

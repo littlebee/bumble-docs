@@ -7,7 +7,7 @@ Util = require('../lib/util')
 Markdown = require './markdown'
 
 
-Method = React.createClass 
+class Method extends React.Component 
   render: ->
     className = "method" 
     className += @props.className if @props.className?
@@ -32,7 +32,7 @@ Method = React.createClass
   renders all documented class methods
   if @props.allMethods == true then returns undocumented methods too
 ###
-Methods = React.createClass
+class Methods extends React.Component
   render: ->
     return null unless @props.methods?.length > 0
     <div className={@props.className}>
@@ -48,7 +48,7 @@ Methods = React.createClass
     return renderedMethods
     
 
-ClassMethods = React.createClass
+class ClassMethods extends React.Component
   render: ->
     <Methods classMethods 
       klass={@props.klass} 
@@ -59,7 +59,7 @@ ClassMethods = React.createClass
     />
     
     
-InstanceMethods = React.createClass
+class InstanceMethods extends React.Component
   render: ->
     <Methods 
       klass={@props.klass} 
@@ -70,7 +70,7 @@ InstanceMethods = React.createClass
     />
     
     
-module.exports = React.createClass
+class module.exports extends React.Component
   render: ->
     <div className="methods">
       <ClassMethods klass={@props.klass}/>

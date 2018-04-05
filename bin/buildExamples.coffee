@@ -140,7 +140,11 @@ for example in examples
   compiledJs = switch
     when ext == '.js' then rawSource
     when ext in ['.coffee', '.cjsx'] then coffeeReact.compile(rawSource) 
-    when ext in ['.jsx'] then babel.transform(rawSource).code
+    when ext in ['.jsx']  
+      babel.transform(
+        rawSource,
+        { "presets": ["react", "stage-2", "ES2015"] }
+      ).code
     
   fs.writeFileSync jsOutputFile, compiledJs
   

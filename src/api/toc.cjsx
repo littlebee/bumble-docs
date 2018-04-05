@@ -5,7 +5,7 @@ _ = require('underscore')
 
 # builds the table of contents for the apiDocs
     
-TocListItems = React.createClass
+class TocListItems extends React.Component
   render: ->
     lis = []
     for klass in @props.listComponents
@@ -70,7 +70,7 @@ TocListItems = React.createClass
   
 
     
-TocSection = React.createClass
+class TocSection extends React.Component
   render: ->
     return null unless @props.listComponents?.length > 0
     <section>
@@ -79,7 +79,7 @@ TocSection = React.createClass
     </section>
     
     
-module.exports = Toc = React.createClass 
+module.exports = class Toc extends React.Component 
   render: ->
     <div className="toc no-print">
       {@renderTocSections()}

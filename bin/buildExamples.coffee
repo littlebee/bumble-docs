@@ -143,7 +143,10 @@ for example in examples
     when ext in ['.jsx']  
       babel.transform(
         rawSource,
-        { "presets": ["react", "stage-2", "ES2015"] }
+        { 
+          "presets": ["react", "stage-2", "ES2015"], 
+          "plugins": ["transform-class-properties"]
+        }
       ).code
     
   fs.writeFileSync jsOutputFile, compiledJs

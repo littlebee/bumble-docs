@@ -1,3 +1,9 @@
+## [0.7.0](https://github.com/littlebee/bumble-docs.git/compare/0.6.1...0.7.0) (2018-04-5)
+Breaking change:   you will need to copy your own vendor libs into your docs/vendor  directory at build time.
+
+### Other Commits
+* [1b3b49e](https://github.com/littlebee/bumble-docs.git/commit/1b3b49ec5c54726f47738ab26b319f7bcbe24666) stop shipping static vendor libs with source
+
 ## [0.6.1](https://github.com/littlebee/bumble-docs.git/compare/0.6.0...0.6.1) (2018-04-5)
 
 

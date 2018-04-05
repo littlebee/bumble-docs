@@ -1,3 +1,9 @@
+## [0.6.0](https://github.com/littlebee/bumble-docs.git/compare/0.5.5...0.6.0) (2018-04-5)
+
+
+### Other Commits
+* [34609b1](https://github.com/littlebee/bumble-docs.git/commit/34609b1369a85417be96b3a3e560081e7f30ca31) Doc generation works on React 16
+
 ## [0.5.5](https://github.com/littlebee/bumble-docs.git/compare/0.5.4...0.5.5) (2018-04-4)
 
 

@@ -58,8 +58,10 @@ unless app.configFile.examples?
   process.exit(0)
 
 for scriptMeta in app.ourRequiredPageVendorScripts
-  srcFile =  app.bumbleRelativeRoot + scriptMeta.src
   unless fs.existsSync(scriptMeta.dest)
+    srcFile = scriptMeta.src
+    unless fs.existsSync(srcFile)
+      srcFile =  app.bumbleRelativeRoot + scriptMeta.src
     console.log "bumble-docs: copying #{srcFile} to #{scriptMeta.dest}"
     fs.copySync srcFile, scriptMeta.dest, clobber: true
 

@@ -29,6 +29,24 @@ if configFileFound
 module.exports = class App 
 
   @bumbleRelativeRoot: './node_modules/bumble-docs/'
+  @ourNpmPackage:  util.parseJsonFile('node_modules/bumble-docs/package.json')
+  @userNpmPackage: util.parseJsonFile('package.json')
+  @configFile: configFile
+  
+  # these are the vendor scripts that get loaded when the doc pages load in the browser
+  # they are in dependency order
+  @ourRequiredPageVendorScripts: [
+    { src: "node_modules/react/umd/react.development.js",           dest: "docs/vendor/react.js"}
+    { src: "node_modules/react-dom/umd/react-dom.development.js",   dest: "docs/vendor/react-dom.js"}
+    { src: "node_modules/prop-types/prop-types.js",                 dest: "docs/vendor/prop-types.js"}
+    { src: "node_modules/jquery/dist/jquery.min.js",                dest: "docs/vendor/jquery.js"}
+    { src: "node_modules/underscore/underscore-min.js",             dest: "docs/vendor/underscrore.js"}
+    { src: "node_modules/backbone/backbone-min.js",                 dest: "docs/vendor/backbone.js"}
+    { src: "node_modules/react-datum/dist/react-datum.js",          dest: "docs/vendor/react-datum.js"}
+    { src: "node_modules/underscore/underscore-min.js",             dest: "docs/vendor/underscrore.js"}
+    { src: "node_modules/tilegrid/dist/tilegrid.js",                dest: "docs/vendor/tilegrid.js"}
+  ]
+  
   
   @loadTemplate: (templateFile) ->
     return _.template(fs.readFileSync(path.join(OUR_TEMPLATE_DIR, templateFile)).toString())
@@ -52,12 +70,5 @@ module.exports = class App
     if configFile.examples?
       for fileSpec in ["src/examples/loadExample.js", 'src/examples/loadExamplesView.js']
         fs.copySync(@bumbleRelativeRoot + fileSpec, "docs/examples/" + path.basename(fileSpec))
-    
-  @ourNpmPackage:  util.parseJsonFile('node_modules/bumble-docs/package.json')
-  
-  @userNpmPackage: util.parseJsonFile('package.json')
-  
-  @configFile: configFile
-
     
   

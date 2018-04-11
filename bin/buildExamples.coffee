@@ -57,6 +57,12 @@ unless app.configFile.examples?
   console.log "examples attribute not found in bumbleDocs.js (skipping)"
   process.exit(0)
 
+for scriptMeta in app.ourRequiredPageVendorScripts
+  srcFile =  app.bumbleRelativeRoot + scriptMeta.src
+  unless fs.existsSync(scriptMeta.dest)
+    console.log "bumble-docs: copying #{srcFile} to #{scriptMeta.dest}"
+    fs.copySync srcFile, scriptMeta.dest, clobber: true
+
 indexHtml = ReactDOMServer.renderToStaticMarkup React.createElement Layout,  
   relativeRoot: '../..'
   selectedTab: '/docs/examples'

@@ -2,51 +2,36 @@
 React = require('react')
 _ = require('underscore')
 
+App = require('./lib/app')
 Util = require('./lib/util')
 Header = require('./header')
 Str = require('bumble-strings')
+Glob = require('glob')
 
 # this is the base set, page props at render add to these depending on the page
 # being rendered
-
+vendorScripts = App.ourRequiredPageVendorScripts
 
 module.exports = class Layout extends React.Component
   # styles sheets can also be added to by the @props or via user bumbleDocs.js config file
   # in @props.configFile.
-  styleSheets: [{
-    path: "/docs/css/react-datum.css"
-  },{
-    path: "/docs/css/bootstrap-light.css"
-  },{
-    path: "/docs/css/syntaxHighlight.css"
-  },{
-    path: "/docs/css/docs.css"
-  },{
-    path: "/docs/css/example.css"
-    media: "screen"
-  },{
-    path: "/docs/css/print.css"
-    media: "print"
-  }]  
+  styleSheets: [
+    {path: "/docs/css/react-datum.css"}
+    {path: "/docs/css/bootstrap-light.css"}
+    {path: "/docs/css/syntaxHighlight.css"}
+    {path: "/docs/css/docs.css"}
+    {path: "/docs/css/example.css", media: "screen"}
+    {path: "/docs/css/print.css",   media: "print"}
+  ]  
 
   # additional scripts can also be added to by the @props or via user bumbleDocs.js config file
   # in @props.configFile.
   # scripts can can also include type.  type is assumed to be "text/javascript" if not specified
-  scripts: [{
-    path:     "/docs/vendor/jquery.min.js"
-  },{
-    path:     "/docs/vendor/underscore-min.js"
-  },{
-    path:     "/docs/vendor/backbone-min.js"
-  },{
-    path:     "/docs/vendor/react.min.js"
-  },{
-    path:     "/docs/vendor/react-dom.min.js"
-  },{
-    path:     "/docs/vendor/react-datum.min.js"
-  },{
-    path:     "/docs/examples/examplesMetadata.js"
-  }]
+  scripts: _.map(vendorScripts, (scriptMeta) -> {path: '/' + scriptMeta.dest}).concat [
+    # examplesMetadata.js is generated from the examples section of the users bumbleDocs 
+    # config file
+    {path:     "/docs/examples/examplesMetadata.js"}
+  ]
   
   constructor: ->
     super

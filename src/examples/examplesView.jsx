@@ -15,28 +15,33 @@ var examplesCollection = new Backbone.Collection(EXAMPLES_METADATA.demos)
 // Each of the demos are wrapped in their own .html which is generated using /src/docs/exampleFile.tpl  
 // It makes each of them individually debuggable.  
 
-var DemoIframe = React.createClass({
-  propTypes: {
-    model: React.PropTypes.instanceOf(Backbone.Model)
-  }, 
-  contextTypes: {
-    model: React.PropTypes.instanceOf(Backbone.Model)
-  },
-  render: function() {
+class DemoIframe extends React.Component {
+  static propTypes = {
+    model: PropTypes.instanceOf(Backbone.Model)
+  } 
+
+  static contextTypes = {
+    model: React.PropTypes.object
+  }
+  
+  static childContextTypes = {
+    model: PropTypes.instanceOf(Backbone.Model)
+  }
+  render() {
     var model = this.getModel()
     var srcPath = model.get('path')
     var htmlPath = srcPath.replace(/(.*)(\.jsx|\.js|\.coffee|\.cjsx)/, "$1.html")
     return <iframe src={htmlPath}/>
-  },
+  }
   
-  getModel: function() {
+  getModel() {
     return this.props.model || this.context.model
-  },
-})
+  }
+}
 
 
-var ExamplesView = React.createClass({
-  render: function() {
+class ExamplesView extends React.Component {
+  render() {
     return (
       <div id="examplesView">
         <Rd.Collection collection={examplesCollection}>
@@ -53,8 +58,9 @@ var ExamplesView = React.createClass({
         </Rd.Collection>
       </div>
     )
-  },
-  componentDidMount: function() {
+  }
+  
+  componentDidMount() {
     if( window && window.location && window.location.hash ){
       var idToSelect = window.location.hash.slice(1)
       _.delay(function(){examplesCollection.selectModelById(idToSelect)}, 1000)
@@ -63,10 +69,8 @@ var ExamplesView = React.createClass({
       var model = examplesCollection.getSelectedModels()[0]
       window.location.hash = model && model.id || ""
     })
-
-  }
-  
-})
+  }  
+}
 
 if( window )
   window.Demo = ExamplesView

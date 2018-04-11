@@ -1,3 +1,9 @@
+## [0.8.0](https://github.com/littlebee/bumble-docs.git/compare/0.7.0...0.8.0) (2018-04-11)
+Support for React versions < 16.0 has been deprecated.  Please use version 0.7.x  for React 14 support.
+
+### Other Commits
+* [abcb2ed](https://github.com/littlebee/bumble-docs.git/commit/abcb2edaac9fca728cac48c80cb136447728c268) bumble docs works on react 16
+
 ## [0.7.0](https://github.com/littlebee/bumble-docs.git/compare/0.6.1...0.7.0) (2018-04-5)
 Breaking change:   you will need to copy your own vendor libs into your docs/vendor  directory at build time.
 

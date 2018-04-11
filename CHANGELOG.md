@@ -1,3 +1,9 @@
+## [0.8.1](https://github.com/littlebee/bumble-docs.git/compare/0.8.0...0.8.1) (2018-04-11)
+
+
+### Other Commits
+* [ab39b79](https://github.com/littlebee/bumble-docs.git/commit/ab39b79204542ca89c9b23b4928bf2d88f016640) prefer to get our doc vendor libs from using app's node_modules
+
 ## [0.8.0](https://github.com/littlebee/bumble-docs.git/compare/0.7.0...0.8.0) (2018-04-11)
 Support for React versions < 16.0 has been deprecated.  Please use version 0.7.x  for React 14 support.
 

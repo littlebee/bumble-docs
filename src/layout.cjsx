@@ -35,11 +35,7 @@ module.exports = class Layout extends React.Component
   
   constructor: ->
     super
-    # tilegrid uses bumble-docs and wants it's latest dist version, 
-    # unminified for debugging   see /bumbleDocs.coffee in tilegrid
-    unless @props.npmPackage.name == 'tilegrid'
-      @scripts.push {path: "/docs/vendor/tilegrid.min.js"}
-    
+
   
   render: ->
     <html>

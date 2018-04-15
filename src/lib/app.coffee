@@ -43,7 +43,6 @@ module.exports = class App
     { src: "node_modules/underscore/underscore-min.js",             dest: "docs/vendor/underscrore.js"}
     { src: "node_modules/backbone/backbone-min.js",                 dest: "docs/vendor/backbone.js"}
     { src: "node_modules/react-datum/dist/react-datum.js",          dest: "docs/vendor/react-datum.js"}
-    { src: "node_modules/underscore/underscore-min.js",             dest: "docs/vendor/underscrore.js"}
     { src: "node_modules/tilegrid/dist/tilegrid.js",                dest: "docs/vendor/tilegrid.js"}
   ]
   

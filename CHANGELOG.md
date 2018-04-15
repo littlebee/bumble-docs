@@ -1,3 +1,9 @@
+## [0.8.2](https://github.com/littlebee/bumble-docs.git/compare/0.8.1...0.8.2) (2018-04-14)
+
+
+### Other Commits
+* [897484f](https://github.com/littlebee/bumble-docs.git/commit/897484f4dcd0584afcbf3bbba9e030ff8d564d21) remove extra inclusion of underscore and tilegrid.min.js in examples
+
 ## [0.8.1](https://github.com/littlebee/bumble-docs.git/compare/0.8.0...0.8.1) (2018-04-11)
 
 

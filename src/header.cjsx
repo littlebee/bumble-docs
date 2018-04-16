@@ -27,7 +27,7 @@ module.exports = class Header extends React.Component
       
   renderGithubLink: =>
     return null unless @props.npmPackage?.repository?.url?
-    <a className='github-link no-print' href={@props.npmPackage.repository.url} target="blank">
+    <a className='github-link no-print' href={@props.npmPackage.homepage} target="blank">
       View on Github
     </a>
     

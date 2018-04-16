@@ -17,7 +17,7 @@ Some of the configurable variables of the generated docs, come from the package.
   
   **description**: is displayed in the header upper right the documentation generation 
   
-  **repository.url**: is used as the href in the "View on Github" link
+  **homepage**: is used as the href in the "View on Github" link
   
   
 ### bumbleDocs.js

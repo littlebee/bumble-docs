@@ -1,3 +1,9 @@
+## [0.9.0](https://github.com/littlebee/bumble-docs.git/compare/0.8.2...0.9.0) (2018-04-16)
+
+
+### Other Commits
+* [7ecf9ed](https://github.com/littlebee/bumble-docs.git/commit/7ecf9ed143533df7864d7baaf63facfd1fa91788) use package.json 'homepage' attribute for view on Github link
+
 ## [0.8.2](https://github.com/littlebee/bumble-docs.git/compare/0.8.1...0.8.2) (2018-04-14)
 
 

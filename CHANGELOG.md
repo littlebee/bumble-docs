@@ -1,3 +1,9 @@
+## [0.9.1](https://github.com/littlebee/bumble-docs.git/compare/0.9.0...0.9.1) (2018-04-16)
+
+
+### Other Commits
+* [913a673](https://github.com/littlebee/bumble-docs.git/commit/913a673118b07219752843f2653b9b52ecef23dd) upgrade markd package to 0.9.3 to appease github nanny bot
+
 ## [0.9.0](https://github.com/littlebee/bumble-docs.git/compare/0.8.2...0.9.0) (2018-04-16)
 
 

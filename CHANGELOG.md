@@ -1,3 +1,9 @@
+## [0.9.2](https://github.com/littlebee/bumble-docs.git/compare/0.9.1...0.9.2) (2018-04-22)
+
+
+### Other Commits
+* [dbd4af8](https://github.com/littlebee/bumble-docs.git/commit/dbd4af8d4e0d6e587b6f11d5a5b80b95e2e1af11) fix .babelrc presets
+
 ## [0.9.1](https://github.com/littlebee/bumble-docs.git/compare/0.9.0...0.9.1) (2018-04-16)
 
 

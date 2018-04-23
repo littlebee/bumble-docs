@@ -1,3 +1,9 @@
+## [0.9.3](https://github.com/littlebee/bumble-docs.git/compare/0.9.2...0.9.3) (2018-04-23)
+
+
+### Other Commits
+* [38563f5](https://github.com/littlebee/bumble-docs.git/commit/38563f575b67d9493fecfb8a045fc54501d104c2) found the real culprit in the ES2015 vs es2015 preset issue
+
 ## [0.9.2](https://github.com/littlebee/bumble-docs.git/compare/0.9.1...0.9.2) (2018-04-22)
 
 

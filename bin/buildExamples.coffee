@@ -152,7 +152,7 @@ for example in examples
       babel.transform(
         rawSource,
         { 
-          "presets": ["react", "stage-2", "ES2015"], 
+          "presets": ["react", "stage-2", "es2015"], 
           "plugins": ["transform-class-properties"]
         }
       ).code

@@ -51,7 +51,7 @@ module.exports = class Documentor
     
     lines = fs.readFileSync(file).toString().split("\n");
     for line, lineNumber in lines
-      continue unless line?
+      continue unless line? && Str.trim(line, {all: true}).length > 0
       continue if @handlePropTypes(line)
       continue if @handleDefaultProps(line)
       continue if @handleContextTypes(line)

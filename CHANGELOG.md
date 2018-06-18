@@ -1,3 +1,8 @@
+## [0.9.4](https://github.com/littlebee/bumble-docs.git/compare/v0.9.3...v0.9.4) - (2018-06-18)
+
+### Bugs Fixed in this Release
+* [85ba3ae](https://github.com/littlebee/bumble-docs.git/commit/85ba3ae58eed133a796020082a9f0e872b421ff4)  parser stops parsing PropTypes prematurely
+
 ## [0.9.3](https://github.com/littlebee/bumble-docs.git/compare/0.9.2...0.9.3) (2018-04-23)
 
 
